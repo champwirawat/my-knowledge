@@ -1,5 +1,5 @@
-- [🏠 หน้าแรก](README.md)
-- **คู่มือการใช้งาน**
+- [Welcome](README.md)
+- **AI (Artificial Intelligence)**
   - [เริ่มต้นใช้งาน](guide.md)
-- **API**
-  - [API Reference](api.md)
+- **Database**
+  - [OpenSearch](/database/opensearch/opensearch-th.md)
