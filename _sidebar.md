@@ -1,6 +1,6 @@
-- [Welcome](README.md)
+- [About Me](README.md)
 - **AI (Artificial Intelligence)**
-  - [เริ่มต้นใช้งาน](guide.md)
 - **Database**
   - **OpenSearch**
-    - [What is OpenSearch?](/database/opensearch.md)
+    - [What is OpenSearch?](/database/opensearch/what-opensearch)
+    - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)

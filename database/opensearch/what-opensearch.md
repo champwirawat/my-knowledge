@@ -1,7 +1,9 @@
 # What is OpenSearch?
-OpenSearch is  an open-source search and analytics engine. It is developed and maintained by AWS (Amazon Web Services) and the open-source community.
+
+OpenSearch is an open-source search and analytics engine. It is developed and maintained by AWS (Amazon Web Services) and the open-source community.
 
 ## Use Cases
+
 - **Search Engine** - for web or app (e.g. product or document search)
 - **Log Analytics** - to collect and analyze system logs
 - **Data Analytics Platform** - to see trends and analyze data
@@ -10,6 +12,7 @@ OpenSearch is  an open-source search and analytics engine. It is developed and m
 ## Basic Installation and Usage
 
 ### Install with Docker Compose
+
 ```yaml
 version: "3.7"
 services:
@@ -94,7 +97,15 @@ curl -X GET "http://localhost:9200/my-index/_search" \
 
 ## Learning Resources
 
-- **Official Website**: https://opensearch.org/
-- **Documentation**: https://opensearch.org/docs/latest/
-- **GitHub**: https://github.com/opensearch-project
-- **Community Forum**: https://forum.opensearch.org/
+- **Official Website**: <https://opensearch.org/>
+- **Documentation**: <https://opensearch.org/docs/latest/>
+- **GitHub**: <https://github.com/opensearch-project>
+- **Community Forum**: <https://forum.opensearch.org/>
+
+--------------------------------------------------------------------------------
+
+<div style="display: flex; justify-content: end; margin-top: 40px;">
+  <a href="/#/database/opensearch/opensearch-dashboard" style="padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;">
+        Next<br>
+        <i>OpenSearch Dashboard</i></a>
+</div>
