@@ -2,4 +2,5 @@
 - **AI (Artificial Intelligence)**
   - [เริ่มต้นใช้งาน](guide.md)
 - **Database**
-  - [OpenSearch](/database/opensearch/opensearch-th.md)
+  - **OpenSearch**
+    - [What is OpenSearch?](/database/opensearch.md)
