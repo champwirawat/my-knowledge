@@ -1,5 +1,5 @@
-- [About Me](README.md)
-- **AI (Artificial Intelligence)**
+- [Welcome](README.md)
+<!-- - **AI (Artificial Intelligence)** -->
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
