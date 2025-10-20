@@ -1,6 +1,12 @@
+<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
+Updated at 12/10/2025
+</div>
+
 # What is OpenSearch?
 
 OpenSearch is an open-source search and analytics engine. It is developed and maintained by AWS (Amazon Web Services) and the open-source community.
+
+--------------------------------------------------------------------------------
 
 ## 💡 Use Cases
 
@@ -8,6 +14,8 @@ OpenSearch is an open-source search and analytics engine. It is developed and ma
 - **Log Analytics** - to collect and analyze system logs
 - **Data Analytics Platform** - to see trends and analyze data
 - **AI / NLP Search** - for semantic search using embedding + vector search
+
+--------------------------------------------------------------------------------
 
 ## ⚙️ Basic Installation and Usage
 
@@ -96,10 +104,13 @@ curl -X GET "http://localhost:9200/my-index/_search" \
 ```
 
 ### Delete Data
+
 ```bash
 curl -X DELETE "http://localhost:9200/my-index/_doc/1" \
   -ku admin:Secur3#Pass!
 ```
+
+--------------------------------------------------------------------------------
 
 ## 📚 Learning Resources
 

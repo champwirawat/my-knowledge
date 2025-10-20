@@ -1,5 +1,6 @@
 - [Welcome](README.md)
-<!-- - **AI (Artificial Intelligence)** -->
+- **AI (Artificial Intelligence)**
+  - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)

@@ -1,6 +1,12 @@
+<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
+Updated at 12/10/2025
+</div>
+
 # OpenSearch Dashboard
 
 OpenSearch Dashboard is a powerful tool for visualizing and managing data in OpenSearch. It allows you to easily create graphs, dashboards, and analyze data through a web interface.
+
+--------------------------------------------------------------------------------
 
 ## 🔐 Accessing OpenSearch Dashboard
 
@@ -14,6 +20,8 @@ http://localhost:5601
 
 - Username: `admin`
 - Password: `Secur3#Pass!`
+
+--------------------------------------------------------------------------------
 
 ## ⭐ Core Features of OpenSearch Dashboard
 
@@ -41,6 +49,8 @@ Manage Indexes and Data
 - View all Indexes
 - Manage Index Lifecycle
 - Configure Index Pattern
+
+--------------------------------------------------------------------------------
 
 ## 📚 Learning Resources
 
