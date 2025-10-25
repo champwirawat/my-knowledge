@@ -5,3 +5,6 @@
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
     - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)
+- **Python**
+  - **Python Syntax**
+    - [String Syntax](/python/syntax/string-syntax.md)

@@ -23,6 +23,7 @@ OpenSearch is an open-source search and analytics engine. It is developed and ma
 
 ```yaml
 version: "3.7"
+
 services:
   opensearch-node1:
     image: opensearchproject/opensearch:2.14.0
@@ -41,7 +42,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./datas/.opensearch_data:/usr/share/opensearch/data
+      - opensearch-data:/usr/share/opensearch/data
     ports:
       - "9200:9200"
       - "9600:9600"
@@ -59,6 +60,9 @@ services:
       - "5601:5601"
     depends_on:
       - opensearch-node1
+
+volumes:
+  opensearch-data:
 ```
 
 ### Check if OpenSearch is running
