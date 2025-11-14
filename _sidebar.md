@@ -5,6 +5,11 @@
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
     - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)
-- **Python**
-  - **Python Syntax**
-    - [String Syntax](/python/syntax/string-syntax.md)
+  - **SQL Server**
+    - [Restore Example](/database/sql-server/restore-bak.md)
+- **Cloudflare**
+  - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel.md)
+- **ORM**
+  - **Prisma**
+    - [Prisma Basic](/orm/prisma/prisma-basic.md)
+- [**Learning Resources**](/learning-resources/list.md)
