@@ -1,15 +1,21 @@
 - [Welcome](README.md)
 - **AI (Artificial Intelligence)**
+  - [Overview](/ai/ai-overview.md)
   - [Use Local Ollama](/ai/ollama/local-ollama)
+- **Kubernetes**
+  - [What is Kubernetes?](/k8s/what-k8s)
+  - [Kubernetes Components](/k8s/k8s-components)
+  - [Kubernetes Example](/k8s/k8s-example)
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
     - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)
   - **SQL Server**
-    - [Restore Example](/database/sql-server/restore-bak.md)
+    - [Restore Example](/database/sql-server/restore-bak)
 - **Cloudflare**
-  - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel.md)
+  - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
 - **ORM**
   - **Prisma**
-    - [Prisma Basic](/orm/prisma/prisma-basic.md)
-- [**Learning Resources**](/learning-resources/list.md)
+    - [Prisma Basic](/orm/prisma/prisma-basic)
+- **Learning Resources**
+  - [Reference list](/learning-resources/list)
