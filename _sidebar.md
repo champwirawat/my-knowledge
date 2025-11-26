@@ -4,7 +4,6 @@
   - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Kubernetes**
   - [What is Kubernetes?](/k8s/k8s-basic)
-  - [Get Start Kubernetes](/k8s/k8s-get-start)
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
