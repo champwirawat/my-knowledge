@@ -3,9 +3,8 @@
   - [Overview](/ai/overview/ai-overview.md)
   - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Kubernetes**
-  - [What is Kubernetes?](/k8s/what-k8s)
-  - [Kubernetes Components](/k8s/k8s-components)
-  - [Kubernetes Example](/k8s/k8s-example)
+  - [What is Kubernetes?](/k8s/k8s-basic)
+  - [Get Start Kubernetes](/k8s/k8s-get-start)
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
