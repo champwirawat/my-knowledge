@@ -2,7 +2,7 @@
 
 --------------------------------------------------------------------------------
 
-![AI Learn & Tun](https://firebasestorage.googleapis.com/v0/b/a6dd-1e710cb4332d.firebasestorage.app/o/ai%2Foverview%2FScreenshot%202568-11-20%20at%2009.27.51.png?alt=media&token=81653aec-e5b5-4624-afff-d8eb99a84b7a)
+![AI Learn & Tun](../../public/screenshot-2568-11-20.png)
 
 --------------------------------------------------------------------------------
 
