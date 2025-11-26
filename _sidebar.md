@@ -1,6 +1,6 @@
 - [Welcome](README.md)
 - **AI (Artificial Intelligence)**
-  - [Overview](/ai/ai-overview.md)
+  - [Overview](/ai/overview/ai-overview.md)
   - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Kubernetes**
   - [What is Kubernetes?](/k8s/what-k8s)
