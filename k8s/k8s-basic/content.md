@@ -431,4 +431,5 @@ kubectl config use-context <context_name>
 # --- Delete context,cluster,users ---
 kubectl config delete-cluster <cluster-name>
 kubectl config unset users.<user-name>
+kubectl config delete-context <context-name>
 ```

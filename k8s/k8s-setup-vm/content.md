@@ -158,12 +158,12 @@ worker-node    Ready    <none>          2m    v1.30.x
 ดาวน์โหลด config จาก VM-1 (Control Plane) มาเก็บไว้บน Mac:
 
 ```sh
-ssh root@<VM-1_IP> "sudo cat /etc/kubernetes/admin.conf" > ~/.kube/k8s-vm.conf
+ssh <User>@<VM-1_IP> "cat ~/.kube/config" > ~/.kube/k8s-vm.conf
 ```
 
 **ตัวอย่าง:**
 ```sh
-ssh root@192.168.138.135 "sudo cat /etc/kubernetes/admin.conf" > ~/.kube/k8s-vm.conf
+ssh admini@192.168.138.137 "cat ~/.kube/config" > ~/.kube/k8s-vm.conf
 ```
 
 ### 2. Merge กับ config เดิม
