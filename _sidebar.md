@@ -3,7 +3,8 @@
   - [Overview](/ai/overview/ai-overview.md)
   - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Kubernetes**
-  - [What is Kubernetes?](/k8s/k8s-basic)
+  - [What is Kubernetes?](/k8s/k8s-basic/content.md)
+  - [Setup VM for Kubernetes](/k8s/k8s-setup-vm/content.md)
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
@@ -15,5 +16,5 @@
 - **ORM**
   - **Prisma**
     - [Prisma Basic](/orm/prisma/prisma-basic)
-- **Learning Resources**
-  - [Reference list](/learning-resources/list)
+- **Other**
+  - [Run Ubuntu on Mac](/others/ubuntu-on-mac/content.md)

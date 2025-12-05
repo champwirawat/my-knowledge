@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 26/11/2025
-</div>
-
 # What is Kubernetes?
 
 **Kubernetes (K8s)** เป็น open-source container orchestration platform ที่ใช้สำหรับจัดการ container applications
