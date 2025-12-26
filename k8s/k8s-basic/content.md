@@ -1,73 +1,64 @@
-# What is Kubernetes?
+# Kubernetes Basics
 
-**Kubernetes (K8s)** เป็น open-source container orchestration platform ที่ใช้สำหรับจัดการ container applications
+**Kubernetes (K8s)** เป็น container orchestration platform สำหรับจัดการ container applications
 
---------------------------------------------------------------------------------
+## ✨ ข้อดี
 
-## ✨ ข้อดีของ Kubernetes
-
-- **Container Orchestration** - จัดการ container หลายตัวได้อัตโนมัติ
+- **Container Orchestration** - จัดการ container หลายตัวอัตโนมัติ
 - **Self-healing** - สร้าง Pod ใหม่อัตโนมัติเมื่อ Pod หยุดทำงาน
-- **Auto Scaling** - เพิ่ม/ลดจำนวน Pod ตาม CPU/Memory หรือ Metrics อื่น
+- **Auto Scaling** - เพิ่ม/ลด Pod ตาม CPU/Memory
 - **Load Balancing** - แจกจ่าย traffic ไปยัง Pod หลายตัว
-- **Rolling Updates & Rollback** - อัปเดต application โดยไม่ให้ระบบหยุดทำงาน หากมีปัญหา Rollback กลับเวอร์ชันเดิมได้ทันที
+- **Rolling Updates & Rollback** - อัปเดตโดยไม่หยุดระบบ และ rollback ได้ทันที
 
---------------------------------------------------------------------------------
+## 🏗️ Architecture
 
-## 🏗️ Kubernetes Architecture
+แบ่งเป็น 2 ส่วน: **Control Plane** และ **Worker Nodes**
 
-แบ่งเป็น 2 ส่วนใหญ่ๆ คือ **Control Plane** และ **Worker Nodes** ![Kubernetes Architecture](/images/k8s-architecture.png)<br>
-_Image source: [faun.pub](https://faun.pub/kubernetes-chronicles-k8s-01-introduction-to-kubernetes-architecture-18cad51d270f)_
+![Kubernetes Architecture](/images/k8s-architecture.png)
 
-### 1\. Control Plane
+### Control Plane
 
-ทำหน้าที่ควบคุมทุกอย่างใน Cluster
+ควบคุมทุกอย่างใน Cluster
 
-ประกอบด้วย:
+- **kube-apiserver** - จุดศูนย์กลางการสื่อสาร (kubectl ใช้ตัวนี้)
+- **etcd** - เก็บ config และ state ของ cluster
+- **kube-scheduler** - เลือก Node สำหรับ Pod
+- **kube-controller-manager** - ตรวจสอบและจัดการ cluster
 
-- kube-apiserver : เป็นจุดศูนย์กลางในการสื่อสารทั้งหมด (kubectl คุยกับ cluster ผ่านตัวนี้)
-- etcd : เก็บ config และ state ทั้งหมดของ cluster
-- kube-scheduler : เลือกว่าจะให้ Pod ไปลงที่ Node ไหน
-- kube-controller-manager : ทำหน้าที่คอยเช็คว่า cluster ปัญหาหรือป่าว
+### Worker Node
 
-### 2\. Worker Node
+เครื่องที่รัน containers
 
-คือเครื่องที่รัน containers
+- **kubelet** - ตัวแทนใน Node รับคำสั่งจาก kube-apiserver
+- **kube-proxy** - จัดการ networking/routing ให้ Pod สื่อสารกัน
+- **container runtime** - รัน container (Docker, containerd, CRI-O)
 
-ประกอบด้วย:
-
-- kubelet : ตัวแทนในแต่ละ Node คอยสั่งให้ container ทำงานตามที่ kube-apiserver บอก
-- kube-proxy : ดูแล networking / rules / routing ให้ Pod สื่อสารกัน
-- container runtime : ทำงานในการ run container เช่น Docker, containerd, CRI-O
-
---------------------------------------------------------------------------------
-
-## 🚀 Core Concepts
-
-ทำความรู้จักกับ Core Concepts ทั้ง 9 ตัว ได้แก่ Pod, ReplicaSet, Deployment, Service, Ingress, ConfigMap, Secret, Namespace และ Context พร้อมตัวอย่าง YAML
+## 🚀 ส่วนประกอบพื้นฐาน
 
 ![K8S Flow](/images/k8s-flow.png)
 
 ### 1\. Pod
 
-คือหน่วยที่เล็กที่สุดใน Kubernetes สำหรับใช้ run containers
+หน่วยที่เล็กที่สุดสำหรับรัน containers
 
-- 1 Pod สามารถมี 1 หรือหลาย containers
+- 1 Pod = 1 หรือหลาย containers
 - Containers ใน Pod เดียวกัน share network และ storage
 - Pod มี IP address ของตัวเอง
 
 ### 2\. ReplicaSet
 
-ทำหน้าที่รักษาจำนวน Pod ให้คงที่ตามที่กำหนด ถ้า Pod ตาย จะสร้างใหม่อัตโนมัติ
+รักษาจำนวน Pod ให้คงที่ตามที่กำหนด (สร้างใหม่อัตโนมัติเมื่อ Pod ตาย)
 
 ### 3\. Deployment
 
-ใช้สำหรับจัดการ lifecycle ของแอป (deploy, scale, rolling updates, rollback)
+จัดการ lifecycle ของแอป (deploy, scale, rolling updates, rollback)
 
-- จัดการ ReplicaSet ให้อัตโนมัติ
+- จัดการ ReplicaSet อัตโนมัติ
 - รองรับ Rolling Update และ Rollback
 
-**ตัวอย่าง deployment.yaml**
+#### ตัวอย่าง: สร้าง Deployment
+
+**Step 1: สร้างไฟล์ `deployment.yaml`**
 
 ```yaml
 apiVersion: apps/v1
@@ -75,45 +66,63 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    app: nginx-deployment # กำหนด label ของ deployment
+    app: nginx-deployment
 spec:
   replicas: 2
   selector:
-    matchLabels: # กำหนด label ของ pod ที่จะดูแล
+    matchLabels:
       app: nginx-app
-  template: # กำหนด template spec ของ pod ที่จะดูแล
+  template:
     metadata:
       labels:
         app: nginx-app
     spec:
-      containers: # docker image ที่จะใช้งาน
-        - name: nginx-app # กำหนดชื่อของ container
+      containers:
+        - name: nginx-app
           image: nginx:1.14.2
           ports:
-            - containerPort: 80 # กำหนด port ของ container
+            - containerPort: 80
+```
+
+**Step 2: Apply Deployment**
+
+```sh
+kubectl apply -f deployment.yaml
+```
+
+**Step 3: ตรวจสอบ Pods**
+
+```sh
+kubectl get pods -o wide
+```
+
+**ผลลัพธ์:**
+
+```
+NAME                                READY   STATUS    RESTARTS   AGE     IP              NODE
+nginx-deployment-5d7869c5b5-nx7jm   1/1     Running   0          8m43s   10.244.186.70   lima-k8s-worker-1
+nginx-deployment-5d7869c5b5-rkdtp   1/1     Running   0          8m43s   10.244.186.69   lima-k8s-worker-1
 ```
 
 ### 4\. Service
 
-ทำหน้าที่ expose Pod ให้เข้าถึงได้
+Expose Pod ให้เข้าถึงได้จากภายนอก
 
-**อธิบาย Type**
+**Service Types:**
 
-Type         | คำอธิบาย
------------- | -----------------------------------
-ClusterIP    | เข้าถึงได้เฉพาะใน cluster (default)
-NodePort     | เปิด port บน Node ทุกตัว
-LoadBalancer | ใช้ external load balancer
+- **ClusterIP** - เข้าถึงได้เฉพาะใน cluster (default)
+- **NodePort** - เปิด port บน Node ทุกตัว
+- **LoadBalancer** - ใช้ external load balancer
 
-**อธิบาย Ports**
+**Ports:**
 
-Port         | คำอธิบาย                                 | ใช้กับ Service Type
------------- | ---------------------------------------- | ---------------------------------
-`port`       | Port ที่ Service expose ให้ภายใน cluster | ClusterIP, NodePort, LoadBalancer
-`targetPort` | Port ของ container ใน Pod                | ClusterIP, NodePort, LoadBalancer
-`nodePort`   | Port ที่เปิดบน Node (30000-32767)        | NodePort, LoadBalancer
+- `port` - Port ที่ Service expose ให้ภายใน cluster
+- `targetPort` - Port ของ container ใน Pod
+- `nodePort` - Port ที่เปิดบน Node (30000-32767) สำหรับ NodePort/LoadBalancer
 
-**ตัวอย่าง service.yaml**
+#### ตัวอย่าง: สร้าง Service
+
+**Step 1: สร้างไฟล์ `service.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -123,29 +132,92 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: nginx-app # label ของ pod ที่จะให้วิ่งไปหา
+    app: nginx-app
   ports:
     - protocol: TCP
-      port: 81 # port ที่ให้ภายในคุยกัน
-      targetPort: 80 # port ของ pod ที่จะให้วิ่งไปหา ต้องตรงกับ containerPort ที่กำหนดใน Deployment
-      nodePort: 30180 # port ที่จะให้ภายนอกเข้ามาได้
+      port: 81
+      targetPort: 80
+      nodePort: 30180
 ```
+
+**Step 2: Apply Service**
+
+```sh
+kubectl apply -f service.yaml
+```
+
+**Step 3: ตรวจสอบ Service**
+
+```sh
+kubectl get services
+```
+
+**ผลลัพธ์:**
+
+```
+NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+nginx-service   NodePort    10.106.68.180   <none>        81:30180/TCP   108s
+```
+
+**Step 4: ดูรายละเอียด Service**
+
+```sh
+kubectl describe svc nginx-service
+```
+
+**ผลลัพธ์:**
+
+```
+Name:                     nginx-service
+Selector:                 app=nginx-app
+Type:                     NodePort
+Port:                     81/TCP
+TargetPort:               80/TCP
+NodePort:                 30180/TCP
+Endpoints:                10.244.186.70:80,10.244.186.69:80
+```
+
+**หมายเหตุ:**
+
+- `Endpoints` = IP ของ Pods ที่ Service เชื่อมต่อ
+- เข้าถึงได้ที่ `http://localhost:30180`
 
 ### 5\. Ingress
 
-ตัวจัดการ routing HTTP/HTTPS จากภายนอกไปยัง Service ภายใน cluster
+จัดการ routing HTTP/HTTPS จากภายนอกไปยัง Service
 
 **Flow:** `Client → Ingress → Service:port → Pod:targetPort`
 
-**อธิบาย pathType**
+**pathType:**
 
-pathType               | Description
----------------------- | ----------------------------------------------------
-Prefix                 | match path ที่ขึ้นต้นด้วย prefix ที่กำหนด
-Exact                  | match path ที่ตรงเป๊ะๆ เท่านั้น
-ImplementationSpecific | ขึ้นอยู่กับ IngressClass ที่ใช้ (แต่ละตัวอาจต่างกัน)
+- **Prefix** - match path ที่ขึ้นต้นด้วย prefix
+- **Exact** - match path ที่ตรงเป๊ะๆ
+- **ImplementationSpecific** - ขึ้นอยู่กับ IngressClass
 
-**ตัวอย่าง ingress.yaml**
+#### ตัวอย่าง: สร้าง Ingress
+
+**Step 1: ติดตั้ง ingress-nginx (ต้องทำก่อน)**
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/baremetal/deploy.yaml
+```
+
+**Step 2: ตรวจสอบ ingress-nginx**
+
+```sh
+kubectl get namespace
+kubectl get svc -n ingress-nginx
+```
+
+**ผลลัพธ์:**
+
+```
+NAME                                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+ingress-nginx-controller             NodePort    10.103.196.23    <none>        80:31544/TCP,443:32658/TCP   30s
+```
+
+**Step 3: สร้างไฟล์ `ingress.yaml`**
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -163,30 +235,49 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nginx-service # ชื่อ service ต้องตรงกับที่เราสร้าง
+                name: nginx-service
                 port:
-                  number: 81 # เลข port ของ service ต้องตรงกับที่เราสร้าง ไม่ใช่ targetPort หรือ nodePort
+                  number: 81
 ```
 
-**จากตัวอย่างใช้ Nginx ต้องติดตั้ง ingress-nginx ก่อนถึงจะใช้งานได้**
+**Step 4: Apply Ingress**
 
 ```sh
-# Installation
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/baremetal/deploy.yaml
-
-# เมื่อ run ทั้ง 2 อันเสร็จแล้วจะได้ ingress-nginx มา
-$ kubectl get namespace
-
-# ดู port ที่ให้ภายนอกเข้ามาได้
-$ kubectl get svc -n ingress-nginx
+kubectl apply -f ingress.yaml
 ```
+
+**Step 5: ตรวจสอบ Ingress**
+
+```sh
+kubectl get ing
+kubectl describe ing nginx-ingress
+```
+
+**ผลลัพธ์:**
+
+```
+NAME            CLASS   HOSTS   ADDRESS   PORTS   AGE
+nginx-ingress   nginx   *                 80      8s
+```
+
+**Step 6: ดู port ของ ingress-nginx**
+
+```sh
+kubectl get svc -n ingress-nginx
+```
+
+**เข้าถึงได้ที่:** `http://localhost:32658/testpath` (ใช้ port จาก ingress-nginx-controller)
 
 ### 6\. ConfigMap
 
-เก็บข้อมูล config ที่ ไม่ใช่ความลับ (plain text) เช่น ไฟล์ config, environment variables, flags สามารถ mount เป็นไฟล์ใน container หรือ inject เป็น env vars ได้
+เก็บข้อมูล config (plain text) เช่น ไฟล์ config, environment variables
 
-**ตัวอย่าง configmap.yaml**
+- Mount เป็นไฟล์ใน container
+- Inject เป็น env vars
+
+#### ตัวอย่าง: สร้าง ConfigMap
+
+**Step 1: สร้างไฟล์ `configmap.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -195,40 +286,42 @@ metadata:
   name: nginx-configmap
 data:
   nginx.conf: |
-    user nginx;
-    worker_processes  3;
-    error_log  /var/log/nginx/error.log;
+    worker_processes 1;
+
     events {
-      worker_connections  10240;
+      worker_connections 1024;
     }
+
     http {
-      log_format  main
-              'remote_addr:$remote_addr\t'
-              'time_local:$time_local\t'
-              'method:$request_method\t'
-              'uri:$request_uri\t'
-              'host:$host\t'
-              'status:$status\t'
-              'bytes_sent:$body_bytes_sent\t'
-              'referer:$http_referer\t'
-              'useragent:$http_user_agent\t'
-              'forwardedfor:$http_x_forwarded_for\t'
-              'request_time:$request_time';
-      access_log    /var/log/nginx/access.log main;
+      access_log /dev/stdout;
+      error_log  /dev/stderr notice;
+
       server {
-          listen       80;
-          server_name  _;
-          location / {
-              root   html;
-              index  index.html index.htm;
-          }
+        listen 80;
+
+        location / {
+          return 200 "CONFIGMAP VERSION: v1\n";
+        }
       }
     }
 ```
 
-**วิธีใช้ ConfigMap ใน deployment.yaml**
+**Step 2: Apply ConfigMap**
 
-เพิ่ม volumeMounts และ volumes
+```sh
+kubectl apply -f configmap.yaml
+```
+
+**Step 3: ตรวจสอบ ConfigMap**
+
+```sh
+kubectl get configmap
+kubectl describe configmap nginx-configmap
+```
+
+#### ตัวอย่าง: ใช้ ConfigMap ใน Deployment
+
+**Step 1: สร้างไฟล์ `deployment.yaml` (พร้อม mount ConfigMap)**
 
 ```yaml
 apiVersion: apps/v1
@@ -253,7 +346,7 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - mountPath: /etc/nginx # mount nginx-configmap volumn to /etc/nginx -> จะเอาไฟล์ไหนไปใส่ไว้ใน container นั้นๆ
+            - mountPath: /etc/nginx
               readOnly: true
               name: nginx-volumes
             - mountPath: /var/log/nginx
@@ -261,7 +354,7 @@ spec:
       volumes:
         - name: nginx-volumes
           configMap:
-            name: nginx-configmap # ต้องเหมือนกับใน file configmap
+            name: nginx-configmap
             items:
               - key: nginx.conf
                 path: nginx.conf
@@ -269,73 +362,44 @@ spec:
           emptyDir: {}
 ```
 
-### 7\. Secret
-
-เก็บข้อมูลที่เป็นความลับ เช่น password, API key, token (base64 encoded)
-
-**ตัวอย่าง secret.yaml**
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: my-secret
-type: Opaque
-data:
-  password: cGFzc3dvcmQxMjM=  # base64 encoded
-  api-key: bXlzZWNyZXRrZXk=
-```
-
-**วิธี encode base64**
+**Step 2: Apply Deployment**
 
 ```sh
-$ echo -n "password123" | base64
-# output: cGFzc3dvcmQxMjM=
+kubectl apply -f deployment.yaml
+kubectl get pods -w
 ```
 
-**วิธีใช้ Secret ใน deployment.yaml**
+**Step 3: ทดสอบ**
+
+```sh
+# เข้าถึงผ่าน Ingress
+# http://localhost:32658/testpath
+# จะเห็น: CONFIGMAP VERSION: v1
+```
+
+#### อัปเดต ConfigMap
+
+**Step 1: แก้ไข `configmap.yaml`**
 
 ```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-app
-spec:
-  template:
-    spec:
-      containers:
-        - name: my-app
-          image: my-app:latest
-          # วิธีที่ 1: ใช้เป็น Environment Variables
-          env:
-            - name: DB_PASSWORD # ชื่อ env var ที่จะใช้ใน container
-              valueFrom:
-                secretKeyRef:
-                  name: my-secret # ชื่อ Secret ที่สร้างไว้
-                  key: password # key ใน Secret
-            - name: API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: my-secret
-                  key: api-key
-          # วิธีที่ 2: Mount เป็นไฟล์
-          volumeMounts:
-            - name: secret-volume
-              mountPath: /etc/secrets # path ที่จะ mount
-              readOnly: true
-      volumes:
-        - name: secret-volume
-          secret:
-            secretName: my-secret # ชื่อ Secret ที่สร้างไว้
+# เปลี่ยนจาก: return 200 "CONFIGMAP VERSION: v1\n";
+# เป็น: return 200 "CONFIGMAP VERSION: v2\n";
 ```
 
---------------------------------------------------------------------------------
+**Step 2: Apply และ Restart**
 
-### 8\. Namespace
+```sh
+kubectl apply -f configmap.yaml
+kubectl rollout restart deployment nginx-deployment
+```
 
-คือการแบ่งพื้นที่ภายใน Kubernetes cluster เอาไว้ใช้จัดระเบียบ resource ต่าง ๆ แยกกัน เช่น แยก environment หรือ project เป็นต้น
+**หมายเหตุ:** nginx ต้อง restart Pod เพื่อใช้ config ใหม่ (nginx ไม่ reload อัตโนมัติ)
 
-แต่ละ namespace จะมี resource ของตัวเอง เช่น:
+### 7\. Namespace
+
+แบ่งพื้นที่ใน cluster สำหรับจัดระเบียบ resources (แยก environment/project)
+
+**ตัวอย่าง:**
 
 ```
 dev:
@@ -349,87 +413,117 @@ prod:
   - configmap: app-config
 ```
 
-### 9\. Context
+### 8\. Context
 
-คือโปรไฟล์การเชื่อมต่อกับ Kubernetes cluster ช่วยให้เมื่อมีหลาย cluster เช่น dev / staging / prod จะสามารถสลับได้ง่าย
+โปรไฟล์การเชื่อมต่อกับ Kubernetes cluster (สลับระหว่าง dev/staging/prod)
 
-Context จะถูกเก็บไว้ในไฟล์ `~/.kube/config`
-
---------------------------------------------------------------------------------
+เก็บไว้ใน `~/.kube/config`
 
 ## 💻 คำสั่ง kubectl พื้นฐาน
 
+### Get Resources
+
 ```sh
-# ดูว่ามีเครื่อง node กี่อัน
-$ kubectl get node
+# Nodes
+kubectl get node
 
-# ดูว่ามีกี่ pod
-$ kubectl get po
-# query หา pod ตาม label
-$ kubectl get pod -l app=nginx
+# Pods
+kubectl get po
+kubectl get pod -l app=nginx
+kubectl get pods -o wide
 
-# ดู logs
-$ kubectl logs <podname>
+# Deployments
+kubectl get deployment
+kubectl get deployment -n kube-system -o wide
 
-# ดูว่ามีกี่ namespace
-$ kubectl get namespace
+# Services
+kubectl get svc
+kubectl get svc -n ingress-nginx
 
-# ดูว่ามีกี่ configmap
-$ kubectl get configmap
+# ReplicaSets
+kubectl get replicaset -n kube-system
 
-# shell เข้า pod
-$ kubectl exec -it <podname>
+# ConfigMaps
+kubectl get configmap
 
-# apply เพื่อสร้างของ
-$ kubectl apply -f <filepath>
-$ kubectl delete -f <filepath>
-# apply เพื่อสร้างของทั้งหมดใน folder
-$ kubectl apply -f .
-$ kubectl delete -f .
-# apply ไฟล์ทั้งหมดใน kustomization.yaml
-$ kubectl apply -k .
-$ kubectl delete -k .
+# Namespaces
+kubectl get namespace
 
-# ดูทั้งหมดใน namespace
-$ kubectl get all -n ingress-nginx
-# ใส่ -n <namespace> , ถ้าไม่ใส่ -n มันจะเอาใน default
+# Ingress
+kubectl get ing
 
-# รายชื่อ pod ที่ run อยู่บน namespace:kube-system
-$ kubectl get po -n kube-system
+# All resources in namespace
+kubectl get all -n <namespace>
+```
 
-# รายชื่อ replicaset ที่ run อยู่บน namespace:kube-system
-$ kubectl get replicaset -n kube-system
+### Describe & Logs
 
-# รายชื่อ deployment ที่ run อยู่บน namespace:kube-system
-$ kubectl get deployment -n kube-system
-# -o wide ใช้เพื่อแสดงผลลัพธ์แบบละเอียดมากขึ้น
-$ kubectl get deployment -n kube-system -o wide
+```sh
+# Describe resource
+kubectl describe pod <podname>
+kubectl describe svc <servicename>
+kubectl describe deployment <deploymentname>
 
-# ดูรายละเอียด
-$ kubectl describe pod coredns-668d6bf9bc-b4hgb -n kube-system
+# Logs
+kubectl logs <podname>
+kubectl logs -f <podname>  # follow logs
+```
 
-# เช็คว่า ingress nginx เปิด port ไหน
-$ kubectl get svc -n ingress-nginx
+### Apply & Delete
 
-# --- helm ---
-$ helm list
-# helm install -f rb-value.yaml <release_name> <repository> 
-$ helm install -f rb-value.yaml rabbitmq bitnami/rabbitmq 
-# helm uninstall <release_name>
-$ helm uninstall rabbitmq
+```sh
+# Apply single file
+kubectl apply -f <filepath>
+kubectl delete -f <filepath>
 
-# --- Config ---
+# Apply all files in directory
+kubectl apply -f .
+kubectl delete -f .
+
+# Apply kustomization
+kubectl apply -k .
+kubectl delete -k .
+```
+
+### Exec & Debug
+
+```sh
+# Shell into pod
+kubectl exec -it <podname> -- /bin/sh
+kubectl exec -it <podname> -- /bin/bash
+```
+
+### Rollout
+
+```sh
+# Restart deployment
+kubectl rollout restart deployment <deploymentname>
+
+# Check rollout status
+kubectl rollout status deployment <deploymentname>
+
+# Rollback
+kubectl rollout undo deployment <deploymentname>
+```
+
+### Context & Config
+
+```sh
+# View config
 kubectl config view
 kubectl config view -o jsonpath='{.users[*].name}'
 
-# --- Context ---
-kubectl config get-clusters
-kubectl config get-users
+# Context
 kubectl config get-contexts
 kubectl config current-context
 kubectl config use-context <context_name>
-# --- Delete context,cluster,users ---
+
+# Clusters & Users
+kubectl config get-clusters
+kubectl config get-users
+
+# Delete
+kubectl config delete-context <context-name>
 kubectl config delete-cluster <cluster-name>
 kubectl config unset users.<user-name>
-kubectl config delete-context <context-name>
 ```
