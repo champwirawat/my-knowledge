@@ -17,4 +17,6 @@
   - **Prisma**
     - [Prisma Basic](/orm/prisma/prisma-basic)
 - **Other**
+  - [Lima](/others/lima/content.md)
+  - [Colima](/others/colima/content.md)
   - [Run Ubuntu on Mac](/others/ubuntu-on-mac/content.md)

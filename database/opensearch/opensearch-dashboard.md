@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 12/10/2025
-</div>
-
 # OpenSearch Dashboard
 
 OpenSearch Dashboard is a powerful tool for visualizing and managing data in OpenSearch. It allows you to easily create graphs, dashboards, and analyze data through a web interface.

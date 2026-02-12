@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 14/11/2025
-</div>
-
 # Prisma คืออะไร
 
 Prisma เป็น ORM (Object-Relational Mapping) สำหรับ Node.js/TypeScript ที่ช่วยให้จัดการฐานข้อมูลเชิงสัมพันธ์ (เช่น PostgreSQL, MySQL, SQLite, SQL Server) ได้ง่ายขึ้น โดยใช้ TypeScript type-safe queries และ auto-completion

@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 14/11/2025
-</div>
-
 # Cloudflare Tunnel
 
 Cloudflare Tunnel คือบริการจาก Cloudflare ที่ช่วยให้เราสามารถเชื่อมต่อและเปิด access เครื่องเซิร์ฟเวอร์หรือเว็บ local ของเราออกอินเทอร์เน็ตได้อย่างปลอดภัย โดยไม่ต้องเปิด port firewall หรือ expose IP จริงของเครื่อง แค่รัน agent ชื่อ `cloudflared` เครื่องเราก็จะเชื่อมต่อกับ Cloudflare อัตโนมัติ พร้อมใช้งานผ่าน domain ได้ทันที

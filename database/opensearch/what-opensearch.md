@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 12/10/2025
-</div>
-
 # What is OpenSearch?
 
 OpenSearch is an open-source search and analytics engine. It is developed and maintained by AWS (Amazon Web Services) and the open-source community.

@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 14/11/2025
-</div>
-
 # การกู้คืนฐานข้อมูลจากไฟล์ .bak ใน SQL Server
 
 การกู้คืนฐานข้อมูลจากไฟล์ `.bak` (backup file) เป็นกระบวนการสำคัญในการกู้คืนข้อมูลที่สูญหายหรือย้ายฐานข้อมูลไปยังเซิร์ฟเวอร์อื่น SQL Server รองรับการ restore ทั้งผ่าน GUI (SQL Server Management Studio) และ T-SQL commands

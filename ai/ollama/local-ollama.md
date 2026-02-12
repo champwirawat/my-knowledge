@@ -1,7 +1,3 @@
-<div style="text-align: right; color: #6c757d; font-size: 12px; margin-bottom: 20px;">
-Updated at 16/10/2025
-</div>
-
 # Ollama
 
 Ollama is a free, open-source tool that lets you run powerful AI models (like ChatGPT, Claude, etc.) **directly on your own computer** - no internet connection required once installed.
