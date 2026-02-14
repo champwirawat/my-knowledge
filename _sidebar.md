@@ -20,3 +20,4 @@
   - [Lima](/others/lima/content.md)
   - [Colima](/others/colima/content.md)
   - [Run Ubuntu on Mac](/others/ubuntu-on-mac/content.md)
+  - [Resources](/others/resources/content.md)
