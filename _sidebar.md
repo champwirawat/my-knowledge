@@ -2,6 +2,7 @@
 - **Kubernetes**
   - [What is Kubernetes?](/k8s/k8s-basic/content.md)
   - [Setup VM for Kubernetes](/k8s/k8s-setup-vm/content.md)
+  - [Kong Ingress + Cloudflare](/k8s/k8s-kong-cloudflare/content.md)
 - **Cloudflare**
   - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
 - **Docker**
