@@ -105,7 +105,7 @@ ssh -F ~/.lima/k8s-worker-1/ssh.config lima-k8s-worker-1
 scp -F ~/.lima/k8s-control/ssh.config ./setup-control-plane.sh lima-k8s-control:~/
 ssh -F ~/.lima/k8s-control/ssh.config lima-k8s-control
 # ใน VM:
-# chmod +x ~/setup-control-plane.sh && ./setup-control-plane.sh
+chmod +x ~/setup-control-plane.sh && ./setup-control-plane.sh
 ```
 
 **Copy ไฟล์เข้า VM แล้วรันสคริปต์ -- Worker (ใช้ join command จาก Control Plane):**
@@ -114,7 +114,7 @@ ssh -F ~/.lima/k8s-control/ssh.config lima-k8s-control
 scp -F ~/.lima/k8s-worker-1/ssh.config ./setup-worker.sh lima-k8s-worker-1:~/
 ssh -F ~/.lima/k8s-worker-1/ssh.config lima-k8s-worker-1
 # ใน VM:
-# chmod +x ~/setup-worker.sh && ./setup-worker.sh
+chmod +x ~/setup-worker.sh && ./setup-worker.sh
 ```
 
 ### 4\. เครือข่าย (socket_vmnet) และ Port Forwarding
@@ -151,7 +151,7 @@ ssh -F ~/.lima/k8s-control/ssh.config lima-k8s-control -L 8080:localhost:31544
 ```sh
 # 1\. SSH เข้า node แล้วแก้
 sudo vi /etc/default/kubelet
-# ใส่ (แทน [NODE_IP] ด้วย IP จริงของ node นั้น จาก ip addr show):
+# ใส่ (แทน [NODE_IP] ด้วย IP จริงของ node นั้น จาก "ip addr show"):
 # KUBELET_EXTRA_ARGS=--node-ip=[NODE_IP]
 
 # 2\. รีโหลดและรีสตาร์ท
