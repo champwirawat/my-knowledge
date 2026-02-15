@@ -1,23 +1,28 @@
 - [Welcome](README.md)
-- **AI (Artificial Intelligence)**
-  - [Overview](/ai/overview/ai-overview.md)
-  - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Kubernetes**
   - [What is Kubernetes?](/k8s/k8s-basic/content.md)
   - [Setup VM for Kubernetes](/k8s/k8s-setup-vm/content.md)
+- **Cloudflare**
+  - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
+- **Docker**
+  - [Basic Docker](/docker/basic-docker)
+  - [Docker Compose](/docker/docker-compose)
+- **Virtual Machine**
+  - [Ubuntu on Mac](/vm/ubuntu-on-mac/content.md)
+  - [Lima](/vm/lima/content.md)
+  - [Colima](/vm/colima/content.md)
 - **Database**
   - **OpenSearch**
     - [What is OpenSearch?](/database/opensearch/what-opensearch)
     - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)
   - **SQL Server**
     - [Restore Example](/database/sql-server/restore-bak)
-- **Cloudflare**
-  - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
 - **ORM**
   - **Prisma**
     - [Prisma Basic](/orm/prisma/prisma-basic)
+- **AI (Artificial Intelligence)**
+  - [Overview](/ai/overview/ai-overview.md)
+  - [Use Local Ollama](/ai/ollama/local-ollama)
 - **Other**
-  - [Lima](/others/lima/content.md)
-  - [Colima](/others/colima/content.md)
-  - [Run Ubuntu on Mac](/others/ubuntu-on-mac/content.md)
+  - [SOPS](/others/sops)
   - [Resources](/others/resources/content.md)
