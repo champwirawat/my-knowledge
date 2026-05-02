@@ -24,6 +24,8 @@
 - **AI (Artificial Intelligence)**
   - [Overview](/ai/overview/ai-overview.md)
   - [Use Local Ollama](/ai/ollama/local-ollama)
+- **Base Programming**
+  - [Sync, Async และ Await](/base_programming/sync_async.md)
 - **Other**
   - [SOPS](/others/sops)
   - [Resources](/others/resources/content.md)
