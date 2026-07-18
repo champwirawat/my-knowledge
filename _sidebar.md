@@ -1,31 +1,50 @@
 - [Welcome](README.md)
-- **Kubernetes**
-  - [What is Kubernetes?](/k8s/k8s-basic/content.md)
-  - [Setup VM for Kubernetes](/k8s/k8s-setup-vm/content.md)
-  - [Kong Ingress + Cloudflare](/k8s/k8s-kong-cloudflare/content.md)
-- **Cloudflare**
-  - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
-- **Docker**
-  - [Basic Docker](/docker/basic-docker)
-  - [Docker Compose](/docker/docker-compose)
-- **Virtual Machine**
-  - [Ubuntu on Mac](/vm/ubuntu-on-mac/content.md)
-  - [Lima](/vm/lima/content.md)
-  - [Colima](/vm/colima/content.md)
-- **Database**
-  - **OpenSearch**
-    - [What is OpenSearch?](/database/opensearch/what-opensearch)
-    - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)
-  - **SQL Server**
-    - [Restore Example](/database/sql-server/restore-bak)
-- **ORM**
-  - **Prisma**
-    - [Prisma Basic](/orm/prisma/prisma-basic)
-- **AI (Artificial Intelligence)**
-  - [Overview](/ai/overview/ai-overview.md)
-  - [Use Local Ollama](/ai/ollama/local-ollama)
-- **Base Programming**
-  - [Sync, Async และ Await](/base_programming/sync_async.md)
-- **Other**
-  - [SOPS](/others/sops)
-  - [Resources](/others/resources/content.md)
+
+- **🛠️ Infrastructure & DevOps**
+  - **Kubernetes**
+    - [What is Kubernetes?](/k8s/k8s-basic/content.md)
+    - [Setup VM for Kubernetes](/k8s/k8s-setup-vm/content.md)
+    - [Kong Ingress + Cloudflare](/k8s/k8s-kong-cloudflare/content.md)
+  - **Docker**
+    - [Basic Docker](/docker/basic-docker)
+    - [Docker Compose](/docker/docker-compose)
+  - **Virtual Machine**
+    - [Ubuntu on Mac](/vm/ubuntu-on-mac/content.md)
+    - [Lima](/vm/lima/content.md)
+    - [Colima](/vm/colima/content.md)
+  - **Cloudflare**
+    - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
+
+- **💾 Databases & Data Layer**
+  - **Databases**
+    - **Supabase**
+      - [Supabase Basic](/database/supabase/supabase-basic)
+      - [Supabase Local Dev](/database/supabase/supabase-local-dev)
+    - **OpenSearch**
+      - [What is OpenSearch?](/database/opensearch/what-opensearch)
+      - [OpenSearch Dashboard](/database/opensearch/opensearch-dashboard)
+    - **SQL Server**
+      - [Restore Example](/database/sql-server/restore-bak)
+  - **ORM**
+    - **Prisma**
+      - [Prisma Basic](/orm/prisma/prisma-basic)
+
+- **💻 Software Development**
+  - **Base Programming**
+    - [Sync, Async และ Await](/base_programming/sync_async.md)
+    - **Python**
+      - [`@contextmanager`](/base_programming/python/contextmanager.md)
+  - **Frontend**
+    - [PWA (Progressive Web App)](/frontend/pwa)
+  - **Testing**
+    - [Vitest](/testing/vitest)
+  - **Git & Workflows**
+    - [Git Flow](/git/git-flow)
+
+- **🤖 AI & Utilities**
+  - **AI (Artificial Intelligence)**
+    - [Overview](/ai/overview/ai-overview.md)
+    - [Use Local Ollama](/ai/ollama/local-ollama)
+  - **Other Tools**
+    - [SOPS](/others/sops)
+    - [Resources](/others/resources/content.md)
