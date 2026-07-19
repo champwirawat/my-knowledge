@@ -47,4 +47,5 @@
     - [Use Local Ollama](/ai/ollama/local-ollama)
   - **Other Tools**
     - [SOPS](/others/sops)
+    - [Dust](/others/dust)
     - [Resources](/others/resources/content.md)
