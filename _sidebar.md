@@ -12,8 +12,11 @@
     - [Ubuntu on Mac](/vm/ubuntu-on-mac/content.md)
     - [Lima](/vm/lima/content.md)
     - [Colima](/vm/colima/content.md)
+  - **Linux**
+    - [Basic Commands](/linux/basic-commands)
   - **Cloudflare**
     - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
+
 
 - **💾 Databases & Data Layer**
   - **Databases**
