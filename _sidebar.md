@@ -42,7 +42,9 @@
   - **Testing**
     - [Vitest](/testing/vitest)
   - **Git & Workflows**
+    - [Basic Git](/git/basic-git)
     - [Git Flow](/git/git-flow)
+
 
 - **🤖 AI & Utilities**
   - **AI (Artificial Intelligence)**
