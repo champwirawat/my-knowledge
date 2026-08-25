@@ -14,6 +14,7 @@
     - [Colima](/vm/colima/content.md)
   - **Linux**
     - [Basic Commands](/linux/basic-commands)
+    - [Tmux](/linux/tmux)
   - **Cloudflare**
     - [Cloudflare Tunnel](/cloudflare/cloudflare-tunnel)
 
@@ -51,6 +52,7 @@
     - [Overview](/ai/overview/ai-overview.md)
     - [Use Local Ollama](/ai/ollama/local-ollama)
   - **Other Tools**
+    - [กู้ไฟล์ที่หายหรือลบพลาด](/others/recover-lost-files)
     - [SOPS](/others/sops)
     - [Dust](/others/dust)
     - [Resources](/others/resources/content.md)
